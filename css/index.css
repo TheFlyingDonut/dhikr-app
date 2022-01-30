@@ -1,0 +1,70 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@font-face{
+
+    font-family:'digital-clock-font';
+    src: url('put_the_location_to_your_font.ttf or .otf');
+    
+   }
+
+body {
+
+    background: black;
+    height: 100vh;
+}
+
+.menu-icon-wrap {
+
+    width: 10%;
+    
+
+}
+
+.menu-icon-line {
+
+    background: #fff;
+    padding: 0.1rem;
+    margin: 0.3rem;
+
+}
+
+#counter-wrap {
+
+    /* position: relative;
+    top: 50%;
+    transform: translateY(-50%); */
+    color: #fff;
+    height: 20%;
+
+
+}
+
+.counter-number {
+
+    
+    height: 100%;
+    font-size: 7rem;
+    text-align: center;
+    
+}
+
+#buttons-wrap {
+
+    text-align: center;
+
+}
+
+#buttons-wrap button {
+
+    border: none;
+    padding: 1rem;
+    margin: 1rem;
+    
+
+}
