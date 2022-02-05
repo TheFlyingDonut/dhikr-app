@@ -11,11 +11,7 @@ refreshIcon.addEventListener("click", () => {
 
 })
 
-
 let currentDhikrType;
-
-
-
 let savedCounterNumber;
 
 if (localStorage.getItem("savedDhikrType") !== null) {
