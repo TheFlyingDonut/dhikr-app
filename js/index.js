@@ -56,7 +56,7 @@ counterNumber.innerHTML = savedCounterNumber;
 
 plusBtn.addEventListener("click", () => {
 
-    counterNumber.innerHTML = savedCounterNumber++;
+    counterNumber.innerHTML = savedCounterNumber+=1;
     console.log("Plus")
     localStorage.setItem("savedCounterNumber", savedCounterNumber);
 
