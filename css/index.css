@@ -89,10 +89,12 @@ body {
     color: #fff;
     border: none;
     font-size: 7rem;
+    height: 40%;
+    width: 40%;
     padding: 1rem;
-    margin: 4rem;
+    /* margin: 4rem; */
     border: 4px solid white;
-    border-radius: 30%;
+    border-radius: 40%;
     
 
 }
