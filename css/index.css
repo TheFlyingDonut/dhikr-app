@@ -6,12 +6,12 @@
 
 }
 
-@font-face{
+/* @font-face{
 
     font-family:'digital-clock-font';
     src: url('put_the_location_to_your_font.ttf or .otf');
     
-   }
+   } */
 
 body {
 
@@ -19,6 +19,8 @@ body {
     height: 100vh;
     max-width: 800px;
     color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 #top-nav {
@@ -58,12 +60,9 @@ body {
 
 #counter-wrap {
 
-    /* position: relative;
-    top: 50%;
-    transform: translateY(-50%); */
-    margin-top: 0%;
     color: #fff;
-    height: 20%;
+    height: 50%;
+    padding-top: 30%;
 
 
 }
@@ -72,7 +71,7 @@ body {
 
     
     height: 100%;
-    font-size: 7rem;
+    font-size: 11rem;
     text-align: center;
     
 }
@@ -86,13 +85,14 @@ body {
 
 #buttons-wrap button {
 
+    background: transparent;
+    color: #fff;
     border: none;
+    font-size: 7rem;
     padding: 1rem;
-    margin: 1rem;
-    width: 10%;
-    height: 10%;
-    /* border-radius: 1px solid white; */
-    border-radius: 50%;
+    margin: 4rem;
+    border: 4px solid white;
+    border-radius: 30%;
     
 
 }

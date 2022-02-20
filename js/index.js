@@ -20,7 +20,7 @@ if (localStorage.getItem("savedDhikrType") !== null) {
 
 } else {
 
-    currentDhikrType = "Alhumdulillah";
+    currentDhikrType = "";
 
 }
 
@@ -37,18 +37,27 @@ if (localStorage.getItem("savedCounterNumber") !== null) {
 
 }
 
+savedCounterNumber = 0;
 counterNumber.innerHTML = savedCounterNumber;
 
-minusBtn.addEventListener("click", () => {
+// minusBtn.addEventListener("click", () => {
 
-    savedCounterNumber > 0 ? counterNumber.innerHTML = savedCounterNumber-- : counterNumber.innerHTML = 0;
-    localStorage.setItem("savedCounterNumber", savedCounterNumber);
+//     if (savedCounterNumber < 0) {
 
-});
+//         savedCounterNumber--;
+//         counterNumber.innerHTML = savedCounterNumber;
+
+//     }
+
+//     // savedCounterNumber > 0 ? counterNumber.innerHTML = savedCounterNumber-- : counterNumber.innerHTML = 0;
+//     localStorage.setItem("savedCounterNumber", savedCounterNumber);
+
+// });
 
 plusBtn.addEventListener("click", () => {
 
     counterNumber.innerHTML = savedCounterNumber++;
+    console.log("Plus")
     localStorage.setItem("savedCounterNumber", savedCounterNumber);
 
 });
