@@ -15,6 +15,7 @@
 
 body {
 
+    max-width: 800px;
     background: black;
     height: 100vh;
     max-width: 800px;
@@ -50,9 +51,58 @@ body {
 
 }
 
+.menu {
+
+    display: none;
+
+}
+
+.menu-visible {
+
+    display: block;
+    background: green;
+    height: 100%;
+    width: 80%;
+    padding: 2rem;
+    position: relative;
+    top: 50;
+    left: 50;
+
+}
+
+.add-counter-pop-up {
+
+    display: none;
+
+}
+
+.add-counter-pop-up-visible {
+
+    display: block;
+    background: black;
+    padding: 2rem;
+
+}
+
+input {
+
+    padding: 0.5rem;
+
+}
+
+.save-btn {
+
+    background: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+
+}
+
 #dhikr-type-wrap {
 
-    margin-top: 30%;
+    margin-top: 12rem;
     text-align: center;
     font-size: 2rem;
 
@@ -61,8 +111,8 @@ body {
 #counter-wrap {
 
     color: #fff;
-    height: 50%;
-    padding-top: 30%;
+    /* height: 50%;
+    padding-top: 30%; */
 
 
 }
@@ -79,7 +129,7 @@ body {
 #buttons-wrap {
 
     text-align: center;
-    
+    margin-top: 5rem;
 
 }
 
@@ -89,12 +139,12 @@ body {
     color: #fff;
     border: none;
     font-size: 7rem;
-    height: 40%;
-    width: 40%;
+    /* height: 40%;
+    width: 40%; */
     padding: 1rem;
     /* margin: 4rem; */
     border: 2px solid white;
-    border-radius: 40%;
+    border-radius: 30%;
     
 
 }
