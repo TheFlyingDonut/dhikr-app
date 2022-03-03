@@ -26,20 +26,23 @@ body {
 
 #top-nav {
 
-    display: flex;
+    /* display: flex;
     justify-content: center;
+    align-content: center; */
 
 }
 
 #top-nav i {
 
-    margin: 0.5rem;
+    margin: 0.3rem;
+    
 
 }
 
-.menu-icon-wrap {
+.icon-wrap {
 
-    width: 10%;
+    /* position: absolute; */
+    text-align: center;
     
 }
 
@@ -60,10 +63,9 @@ body {
 .menu-visible {
 
     display: block;
-    background: green;
     height: 100%;
-    width: 80%;
-    padding: 2rem;
+    /* width: 100%; */
+    /* padding: 2rem; */
     position: relative;
     top: 50;
     left: 50;
@@ -73,30 +75,69 @@ body {
 .add-counter-pop-up {
 
     display: none;
+    position: absolute;
 
 }
 
 .add-counter-pop-up-visible {
 
-    display: block;
-    background: black;
+    position: absolute;
+    position: absolute;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    background: grey;
     padding: 2rem;
+
+}
+
+.counter-input-btn-wrap {
+
+    display: flex;
+    justify-content: space-between;
 
 }
 
 input {
 
     padding: 0.5rem;
+    width: 100%;
 
 }
 
 .save-btn {
 
+    
     background: none;
     color: #fff;
     border: 1px solid #fff;
     padding: 0.5rem;
     border-radius: 0.3rem;
+
+}
+
+.individual-counter-div {
+
+    padding: 0.8rem 0.5rem 0.5rem 0;
+
+}
+
+.x-icon {
+
+    /* font-size: 2rem; */
+
+}
+
+.menu-counter-wrap {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.menu-counter-name {
+
+
 
 }
 
