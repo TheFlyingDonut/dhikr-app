@@ -13,7 +13,7 @@ const saveBtn = document.querySelector(".save-btn");
 var xIcon;
 
 
-let savedCountersArray;
+var savedCountersArray;
 var savedCountersJson;
 
 // savedCountersJson = JSON.parse(localStorage.getItem("savedCounters"));
@@ -23,38 +23,79 @@ var savedCountersJson;
 
 if (localStorage.getItem("firstLaunch") == null) {
 
+    console.log("FIRST LAUNCH")
+    let savedCounterNumber = 0;
+
     localStorage.setItem("lastCounter", "Alhumdulillah");
-    localStorage.setItem("firstLaunch", false);
-    savedCountersArray = [];
-    savedCountersArray.push("Alhumdulillah", "Subhanallah", "Allahu-Akbar", "Astagfirullah");
+    localStorage.setItem("firstLaunch", "firstLaunch");
+    savedCountersArray = [
+
+        {
+            
+            "counter": "Alhumdulillah",
+            "count": 0,
+            "lastUsed" : true,
+
+        },
+
+        {
+
+            "counter": "Subhanallah",
+            "count": 0,
+            "lastUsed" : false,
+
+        },
+
+        {
+
+            "counter": "Allahu-Akbar",
+            "count": 0,
+            "lastUsed" : false,
+
+        },
+
+        {
+
+            "counter": "Astagfirullah",
+            "count": 0,
+            "lastUsed" : false
+
+        }
+        
+        
+        ];
+
     console.log(savedCountersArray);
     localStorage.setItem("savedCounters", JSON.stringify(savedCountersArray));
+    // localStorage.setItem("savedCounters", savedCountersArray);
+
     savedCountersJson = JSON.parse(localStorage.getItem("savedCounters"));
-    console.log("firstlaunch")
     createCounterList();
     
 } else if (localStorage.getItem("firstLaunch") !== null) {
 
     // savedCountersArray = JSON.parse(localStorage.getItem("savedCounters"));
     savedCountersJson = JSON.parse(localStorage.getItem("savedCounters"));
-    let lastSavedCounter = localStorage.getItem("lastCounter");
-    dhikrType.innerHTML = lastSavedCounter;
+    // savedCounterNumber;
+    // dhikrType.innerHTML = lastSavedCounter;
     createCounterList();
 
 }
 
+var individualCounterDiv;
 function createCounterList() {
 
     for (var i = 0; i < JSON.parse(localStorage.getItem("savedCounters")).length; i++) {
 
-        var individualCounterDiv = document.createElement("div");
+        individualCounterDiv = document.createElement("div");
         individualCounterDiv.setAttribute("class", "individual-counter-div");
-        individualCounterDiv.innerHTML = `<div class="menu-counter-wrap"><span class="menu-counter-name">${JSON.parse(localStorage.getItem("savedCounters"))[i]}</span><span class="xicon" id=${i}>X</span></div>`;
+        individualCounterDiv.innerHTML = `<div class="menu-counter-wrap"><span class="menu-counter-name">${JSON.parse(localStorage.getItem("savedCounters"))[i].counter}</span> <span class="counter-number-span">${JSON.parse(localStorage.getItem("savedCounters"))[i].count}</span><span class="xicon" id=${i}>X</span></div>`;
         addCounterPopUp.appendChild(individualCounterDiv);
 
         // console.log(individualCounterDiv)
+        
+        
 
-      
         document.getElementById(i).addEventListener("click", (e) => {
 
             console.log("X clicked")
@@ -70,17 +111,36 @@ function createCounterList() {
 
     }
 
-    individualCounterDiv.addEventListener("click", (e) => {
-
-        console.log(e.target)
-    
-    
-    });
-
-
-    
 
 }
+
+document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
+    
+    item.addEventListener("click", (e) => {
+
+        let currentCounter = e.target.childNodes[0].textContent;
+        let currentCounterNumber;
+
+        if (e.target.parentNode.childNodes[2].textContent) {
+
+            // currentCounterNumber = e.target.parentNode.childNodes[2].textContent;
+            counterNumber.innerHTML = savedCounterNumber;
+            savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
+
+        }
+
+        
+        dhikrType.innerHTML = currentCounter;
+        menu.classList.remove("menu-visible");
+        menu.classList.add("menu");
+        // console.log(e.target.parentNode);
+        console.log(currentCounterNumber)
+
+    })
+
+});
+
+
 
 refreshIcon.addEventListener("click", () => {
 
@@ -156,23 +216,12 @@ popUpMenu.setAttribute("class", "pop-up-menu");
 // })
 
 // let currentDhikrType;
-let savedCounterNumber;
 
-// dhikrType.innerHTML = currentDhikrType;
 
-if (localStorage.getItem("savedCounterNumber") !== null) {
+// // dhikrType.innerHTML = currentDhikrType;
 
-    savedCounterNumber = localStorage.getItem("savedCounterNumber");
-    console.log(savedCounterNumber);
-
-} else if (localStorage.getItem("savedCounterNumber") == null) {
-
-    savedCounterNumber = 0;
-
-}
-
-savedCounterNumber = 0;
-counterNumber.innerHTML = savedCounterNumber;
+// savedCounterNumber = 0;
+// counterNumber.innerHTML = savedCounterNumber;
 
 // minusBtn.addEventListener("click", () => {
 
@@ -191,7 +240,27 @@ counterNumber.innerHTML = savedCounterNumber;
 plusBtn.addEventListener("click", () => {
 
     counterNumber.innerHTML = savedCounterNumber+=1;
-    console.log("Plus")
-    localStorage.setItem("savedCounterNumber", JSON.stringify(savedCounterNumber));
+
+    // let matchCounter = savedCountersJson.find( (element) => {
+
+    //     return element == dhikrType.innerHTML;
+
+    // })
+
+    for (let i = 0; i < savedCountersJson.length; i++) {
+
+        // console.log(savedCountersJson[i])
+
+        if (savedCountersJson[i].counter == dhikrType.innerHTML) {
+
+            console.log(savedCountersJson[i].counter);
+            savedCountersJson[i].count = savedCounterNumber;
+            console.log(savedCountersJson)
+            localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
+
+        }
+
+
+    }
 
 });
