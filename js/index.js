@@ -89,7 +89,8 @@ if (localStorage.getItem("firstLaunch") == null) {
     
 } else if (localStorage.getItem("firstLaunch") !== null) {
 
-    savedCounterNumber = localStorage.getItem("lastCounterNumber");
+    // savedCounterNumber = localStorage.getItem("lastCounterNumber");
+    savedCounterNumber = JSON.parse(localStorage.getItem("lastUsedCounter"))[0].count;
     counterNumber.innerHTML = savedCounterNumber;
     
     savedCountersJson = JSON.parse(localStorage.getItem("savedCounters"));
