@@ -136,21 +136,19 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
     
     item.addEventListener("click", (e) => {
 
-        let currentCounter = e.target.childNodes[0].textContent;
-        let currentCounterNumber;
-
         if (e.target.parentNode.childNodes[2].textContent) {
 
-            // currentCounterNumber = e.target.parentNode.childNodes[2].textContent;
             counterNumber.innerHTML = savedCounterNumber;
             savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
 
         }
 
         
-        dhikrType.innerHTML = currentCounter;
-        menu.classList.remove("menu-visible");
-        menu.classList.add("menu");
+        dhikrType.innerHTML = e.target.parentNode.childNodes[0].textContent;
+        counterNumber.innerHTML = e.target.parentNode.childNodes[2].textContent;
+        // menu.classList.remove("menu-visible");
+        // menu.classList.add("menu");
+        
 
 
     })
@@ -178,11 +176,11 @@ refreshIcon.addEventListener("click", () => {
 
 menuIcon.addEventListener("click", () => {
 
-    menu.classList.add("menu-visible");
+    // menu.classList.add("menu-visible");
 
     if (menu.classList == "menu") {
 
-         menu.classList.remove("menu");   
+         menu.classList.remove("menu");
          menu.classList.add("menu-visible");
          
     } else if (menu.classList == "menu-visible") {
