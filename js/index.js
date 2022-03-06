@@ -146,6 +146,18 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
         
         dhikrType.innerHTML = e.target.parentNode.childNodes[0].textContent;
         counterNumber.innerHTML = e.target.parentNode.childNodes[2].textContent;
+
+        lastUsedCounter = [
+
+            {
+                counter : e.target.parentNode.childNodes[0].textContent,
+                count: 0
+    
+            }
+    
+        ]
+
+        localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter))
         // menu.classList.remove("menu-visible");
         // menu.classList.add("menu");
         
