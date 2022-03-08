@@ -140,6 +140,7 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
             console.log("clicked")
             savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
             counterNumber.innerHTML = savedCounterNumber;
+            menu.style.display = "none";
             
 
         }
@@ -187,9 +188,23 @@ refreshIcon.addEventListener("click", () => {
         for (let i = 0; i < savedCountersJson.length; i++) {
     
             if (savedCountersJson[i].counter == dhikrType.innerHTML) {
-      
+                
+                console.log(savedCountersJson[i].counter)
                 savedCountersJson[i].count = savedCounterNumber;
                 localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
+
+                
+        lastUsedCounter = [
+
+            {
+                counter : savedCountersJson[i].counter,
+                count: 0
+    
+            }
+    
+        ]
+
+                localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter))
     
             }
     
@@ -213,17 +228,19 @@ menuIcon.addEventListener("click", () => {
 
     // menu.classList.add("menu-visible");
 
-    if (menu.classList == "menu") {
+    menu.style.display = "block";
 
-         menu.classList.remove("menu");
-         menu.classList.add("menu-visible");
+    // if (menu.classList == "menu") {
+
+    //      menu.classList.remove("menu");
+    //      menu.classList.add("menu-visible");
          
-    } else if (menu.classList == "menu-visible") {
+    // } else if (menu.classList == "menu-visible") {
 
-        menu.classList.remove("menu-visible");
-        menu.classList.add("menu");
+    //     menu.classList.remove("menu-visible");
+    //     menu.classList.add("menu");
 
-    }
+    // }
 
     if (addCounterPopUp.classList == "add-counter-pop-up") {
 
