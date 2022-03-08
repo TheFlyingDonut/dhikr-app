@@ -3,6 +3,7 @@ const counterNumber = document.querySelector(".counter-number");
 const minusBtn = document.querySelector(".minus-btn");
 const plusBtn = document.querySelector(".plus-btn");
 const refreshIcon = document.querySelector(".fa-redo");
+const refreshPopUpBox = document.querySelector(".refresh-pop-up-box");
 const menuIcon = document.querySelector(".menu-icon");
 const menu = document.querySelector(".menu");
 const plusIcon = document.querySelector(".plus-icon");
@@ -173,20 +174,38 @@ refreshListenersForMenuItems();
 
 refreshIcon.addEventListener("click", () => {
 
-    savedCounterNumber = 0;
-    counterNumber.innerHTML = savedCounterNumber;
+    let userChoice;
 
-    for (let i = 0; i < savedCountersJson.length; i++) {
+    refreshPopUpBox.style.display = "block";
 
-        if (savedCountersJson[i].counter == dhikrType.innerHTML) {
-  
-            savedCountersJson[i].count = savedCounterNumber;
-            localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
+    document.querySelector(".yes-button").addEventListener("click", () => {
 
+        refreshPopUpBox.style.display = "none";
+        savedCounterNumber = 0;
+        counterNumber.innerHTML = savedCounterNumber;
+    
+        for (let i = 0; i < savedCountersJson.length; i++) {
+    
+            if (savedCountersJson[i].counter == dhikrType.innerHTML) {
+      
+                savedCountersJson[i].count = savedCounterNumber;
+                localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
+    
+            }
+    
+    
         }
 
 
-    }
+    });
+
+    document.querySelector(".no-button").addEventListener("click", () => {
+
+        refreshPopUpBox.style.display = "none";
+
+
+    })
+   
 
 })
 
@@ -294,6 +313,8 @@ plusBtn.addEventListener("click", () => {
     })
 
     createCounterList();
+    refreshListenersForMenuItems();
+
 
     localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter));    
 

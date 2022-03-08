@@ -49,6 +49,28 @@ body {
     
 }
 
+.refresh-pop-up-box {
+
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    border: 1px solid #fff;
+    border-radius: 0.3rem;
+    background: grey;
+    padding: 3rem;
+    
+
+}
+
+.refresh-pop-up-box button {
+
+    margin: 0.5rem 0.3rem;
+    padding: 0.6rem;
+
+}
+
 .menu-icon-line {
 
     background: #fff;
@@ -102,7 +124,6 @@ body {
 .add-counter-pop-up-visible {
 
     position: absolute;
-    position: absolute;
     left: 50%;
     width: 80%;
     transform: translateX(-50%);
@@ -115,13 +136,17 @@ body {
 
     display: flex;
     justify-content: space-between;
+    
 
 }
 
 input {
 
     padding: 0.5rem;
+    margin-right: 0.2rem;
     width: 100%;
+    border: none;
+    border-radius: 0.3rem;
 
 }
 
