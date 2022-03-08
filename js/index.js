@@ -110,9 +110,6 @@ function createCounterList() {
         addCounterPopUp.appendChild(individualCounterDiv);
 
         // console.log(individualCounterDiv)
-        
-        
-
         document.getElementById(i).addEventListener("click", (e) => {
 
             console.log("X clicked")
@@ -130,15 +127,19 @@ function createCounterList() {
 
 
 }
+function refreshListenersForMenuItems() {
 
 document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
     
     item.addEventListener("click", (e) => {
 
+        
         if (e.target.parentNode.childNodes[2].textContent) {
 
-            counterNumber.innerHTML = savedCounterNumber;
+            console.log("clicked")
             savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
+            counterNumber.innerHTML = savedCounterNumber;
+            
 
         }
 
@@ -165,6 +166,10 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
     })
 
 });
+
+}
+
+refreshListenersForMenuItems();
 
 refreshIcon.addEventListener("click", () => {
 
@@ -244,6 +249,7 @@ saveBtn.addEventListener("click", () => {
     })
 
     createCounterList();
+    refreshListenersForMenuItems();
 
 
 });
@@ -286,7 +292,7 @@ plusBtn.addEventListener("click", () => {
         item.remove();
 
     })
-    
+
     createCounterList();
 
     localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter));    
