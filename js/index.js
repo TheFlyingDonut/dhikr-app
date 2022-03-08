@@ -39,6 +39,7 @@ if (localStorage.getItem("firstLaunch") == null) {
 
     localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter));    
     savedCounter = JSON.parse(localStorage.getItem("lastUsedCounter"));
+    
     dhikrType.innerHTML = savedCounter[0].counter;
     counterNumber.innerHTML = savedCounter[0].count;
     localStorage.setItem("firstLaunch", "firstLaunch");
@@ -49,7 +50,6 @@ if (localStorage.getItem("firstLaunch") == null) {
             
             "counter": "Alhumdulillah",
             "count": 0,
-            "lastUsed" : true,
 
         },
 
@@ -57,7 +57,6 @@ if (localStorage.getItem("firstLaunch") == null) {
 
             "counter": "Subhanallah",
             "count": 0,
-            "lastUsed" : false,
 
         },
 
@@ -65,7 +64,6 @@ if (localStorage.getItem("firstLaunch") == null) {
 
             "counter": "Allahu-Akbar",
             "count": 0,
-            "lastUsed" : false,
 
         },
 
@@ -73,7 +71,6 @@ if (localStorage.getItem("firstLaunch") == null) {
 
             "counter": "Astagfirullah",
             "count": 0,
-            "lastUsed" : false
 
         }
         
@@ -95,8 +92,9 @@ if (localStorage.getItem("firstLaunch") == null) {
     
     savedCountersJson = JSON.parse(localStorage.getItem("savedCounters"));
     savedCounter = JSON.parse(localStorage.getItem("lastUsedCounter"));
+    console.log(savedCounter[0].counter)
     dhikrType.innerHTML = savedCounter[0].counter;
-    // counterNumber.innerHTML = savedCounter[0].count;
+    counterNumber.innerHTML = savedCounter[0].count;
     createCounterList();
 
 }
@@ -234,6 +232,7 @@ saveBtn.addEventListener("click", () => {
          }   
         
          );
+
     addCounterInput.value = "";
     console.log(savedCountersJson);
     localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
@@ -254,7 +253,9 @@ popUpMenu.setAttribute("class", "pop-up-menu");
 
 plusBtn.addEventListener("click", () => {
 
-    counterNumber.innerHTML = savedCounterNumber++;
+    // console.log("plus")
+    savedCounterNumber++;
+    counterNumber.innerHTML = savedCounterNumber;
 
     localStorage.setItem("lastCounterNumber", savedCounterNumber);
 
@@ -262,14 +263,32 @@ plusBtn.addEventListener("click", () => {
 
         if (savedCountersJson[i].counter == dhikrType.innerHTML) {
 
-            console.log(savedCountersJson[i].counter);
             savedCountersJson[i].count = savedCounterNumber;
-            console.log(savedCountersJson)
             localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
 
         }
 
 
     }
+
+    lastUsedCounter = [
+
+        {
+            counter : dhikrType.innerHTML,
+            count: savedCounterNumber
+
+        }
+
+    ]
+
+    document.querySelectorAll(".individual-counter-div").forEach(item => {
+
+        item.remove();
+
+    })
+    
+    createCounterList();
+
+    localStorage.setItem("lastUsedCounter", JSON.stringify(lastUsedCounter));    
 
 });

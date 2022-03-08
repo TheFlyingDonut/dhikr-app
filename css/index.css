@@ -155,8 +155,8 @@ input {
 
 .menu-counter-wrap {
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
 }
 
@@ -165,6 +165,25 @@ input {
     font-size: 1rem;
 
 }
+
+.menu-counter-name {
+
+    grid-column: 1 / 2;
+
+}
+
+.counter-number-span {
+
+    grid-column: 2 / 3;
+    justify-self: end;
+
+ }
+ 
+ .xicon {
+
+    justify-self: end;
+
+ }
 
 #dhikr-type-wrap {
 
