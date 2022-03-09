@@ -120,6 +120,8 @@ function createCounterList() {
             console.log(savedCountersJson)
             localStorage.setItem("savedCounters", JSON.stringify(savedCountersJson));
             console.log(savedCountersJson);
+            // createCounterList();
+
 
         })
         
@@ -135,16 +137,14 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
     item.addEventListener("click", (e) => {
 
         
-        if (e.target.parentNode.childNodes[2].textContent) {
+        if (e.target.parentNode.childNodes[0].textContent) {
 
-            console.log("clicked")
+            console.log(e.target.parentNode.childNodes[0].textContent)
             savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
             counterNumber.innerHTML = savedCounterNumber;
             menu.style.display = "none";
-            
 
         }
-
         
         dhikrType.innerHTML = e.target.parentNode.childNodes[0].textContent;
         counterNumber.innerHTML = e.target.parentNode.childNodes[2].textContent;
