@@ -130,22 +130,22 @@ function createCounterList() {
 
 
 }
+
 function refreshListenersForMenuItems() {
 
 document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
     
     item.addEventListener("click", (e) => {
-
         
         if (e.target.parentNode.childNodes[0].textContent) {
 
-            console.log(e.target.parentNode.childNodes[0].textContent)
             savedCounterNumber = e.target.parentNode.childNodes[2].textContent;
             counterNumber.innerHTML = savedCounterNumber;
             menu.style.display = "none";
 
         }
         
+
         dhikrType.innerHTML = e.target.parentNode.childNodes[0].textContent;
         counterNumber.innerHTML = e.target.parentNode.childNodes[2].textContent;
 
@@ -153,7 +153,7 @@ document.querySelectorAll(".menu-counter-wrap").forEach(function(item) {
 
             {
                 counter : e.target.parentNode.childNodes[0].textContent,
-                count: 0
+                count: e.target.parentNode.childNodes[2].innerText
     
             }
     
